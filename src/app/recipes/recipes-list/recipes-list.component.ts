@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipes } from '../recipes';
 
 @Component({
@@ -7,9 +7,10 @@ import { Recipes } from '../recipes';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent {
+  @Output() recipeWasSelected = new EventEmitter;
   recipes: Recipes[] = [
     {
-      name: 'Burgir',
+      name: 'Haka',
       description: 'Not Healthy',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
@@ -27,4 +28,12 @@ export class RecipesListComponent {
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
     },
   ];
+
+  onRecipeSelected(data: Recipes) {
+    this.recipeWasSelected.emit(data)
+    console.log(data);
+    
+  }
 }
+
+

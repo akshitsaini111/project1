@@ -22,4 +22,7 @@ export class ShoppingListComponent {
       amount: 10,
     },
   ];
+  test(data:Ingredients) {
+    this.ingredients.push(data);
+  }
 }
