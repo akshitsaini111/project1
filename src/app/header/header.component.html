@@ -14,16 +14,21 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right test justify-content-end ">
-         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+          <div ngbDropdown class="d-inline-block">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+      >
+        Manage 
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem>Action</button>
+        <button ngbDropdownItem>Another Action</button>
+        <button ngbDropdownItem>Something Else Here</button>
+      </div>
+    </div>
     </ul>
   </div>
 </nav>

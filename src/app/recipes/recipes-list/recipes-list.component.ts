@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipes } from '../recipes';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipes-list',
@@ -8,26 +9,13 @@ import { Recipes } from '../recipes';
 })
 export class RecipesListComponent {
   @Output() recipeWasSelected = new EventEmitter;
-  recipes: Recipes[] = [
-    {
-      name: 'Haka',
-      description: 'Not Healthy',
-      imagePath:
-        'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
-    },
-    {
-      name: 'Burgir',
-      description: 'Not Healthy',
-      imagePath:
-        'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
-    },
-    {
-      name: 'Burgir',
-      description: 'Not Healthy',
-      imagePath:
-        'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
-    },
-  ];
+  recipes!: Recipes[];
+
+  constructor(public recipeService: RecipeService) { }
+  ngOnInit() {
+    this.recipes = this.recipeService.getRecipe(); 
+  }
+
 
   onRecipeSelected(data: Recipes) {
     this.recipeWasSelected.emit(data)
