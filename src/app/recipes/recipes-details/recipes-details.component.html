@@ -24,16 +24,20 @@
         Manage Recipe
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem>To Shopping List</button>
+        <button ngbDropdownItem (click)="onAddToShoppingList()">To Shopping List</button>
         <button ngbDropdownItem>Edit Recipe</button>
         <button ngbDropdownItem>Delete Recipe</button>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">Description</div>
+    <div class="col-xs-12">{{recipe.description}}</div>
   </div>
   <div class="row">
-    <div class="col-xs-12">Ingredients</div>
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let i of recipe.ingredients">{{i.name}}-{{i.amount}}</li>
+      </ul>
+    </div>
   </div>
 </div>

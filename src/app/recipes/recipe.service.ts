@@ -1,12 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipes } from './recipes';
+import { Ingredients } from '../shared/ingredients';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter;
-  constructor() { }
+  recipeSelected = new EventEmitter();
 
   recipes: Recipes[] = [
     {
@@ -14,22 +13,70 @@ export class RecipeService {
       description: 'Not Healthy',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
+      ingredients: [
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+      ],
     },
     {
       name: 'Burgir',
       description: 'Not Healthy',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
+      ingredients: [
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+      ],
     },
     {
       name: 'Burgir',
       description: 'Not Healthy',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
+      ingredients: [
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+        {
+          name: 'tomato',
+          amount: 12,
+        },
+      ],
     },
   ];
 
+  constructor(public shoppingListService: ShoppingListService) {}
+
   getRecipe() {
     return this.recipes.slice();
+  }
+
+  addIngedientToShoppingList(ingredients: Ingredients[]) {
+    this.shoppingListService.addIngredients(ingredients);
   }
 }
