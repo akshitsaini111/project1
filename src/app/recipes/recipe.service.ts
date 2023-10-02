@@ -10,7 +10,7 @@ export class RecipeService {
   recipes: Recipes[] = [
     {
       name: 'Haka',
-      description: 'Not Healthy',
+      description: 'Noodles',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
       ingredients: [
@@ -49,8 +49,8 @@ export class RecipeService {
       ],
     },
     {
-      name: 'Burgir',
-      description: 'Not Healthy',
+      name: 'custard',
+      description: 'Sweet dish',
       imagePath:
         'https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2017/01/Blog-Banner-1400x400px-1024x293.jpg',
       ingredients: [
@@ -74,6 +74,10 @@ export class RecipeService {
 
   getRecipe() {
     return this.recipes.slice();
+  }
+
+  getRecipes(id: number) {
+    return this.recipes[id];
   }
 
   addIngedientToShoppingList(ingredients: Ingredients[]) {
